@@ -1,10 +1,10 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import Home from "./components/Home";
 import Body from "./components/Body";
 import Rsvp from "./components/Rsvp";
 import Login from "./components/Login";
 
-const appRouter = createBrowserRouter([
+const appRouter = createHashRouter([
 	{
 		path: '/',
 		element: <Body/>,

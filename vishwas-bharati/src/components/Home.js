@@ -11,8 +11,10 @@ const Home = () => {
                     <img src='banner.jpg' alt='couple' />
                 </div>
                 <div className='support-txt'>
-                    <img width="50" height="50" src="https://img.icons8.com/serif/64/experimental-left-up2-serif.png" alt="experimental-left-up2-serif"/>
-                    <p>That's Us!</p>
+                    <div>
+                        <img width="50" height="50" src="https://img.icons8.com/serif/64/experimental-left-up2-serif.png" alt="experimental-left-up2-serif"/>
+                        <p>That's Us!</p>
+                    </div>
                 </div>
             </div>
             <div className='gtng-mrd'>
@@ -29,7 +31,7 @@ const Home = () => {
                             <h3>Maharashtra</h3>
                         </div>
                     </div>
-                    <Link to='/rsvp' className='rsvp-lnk'>RSVP</Link>
+                    <Link to='/rsvp' reloadDocument className='rsvp-lnk'>RSVP</Link>
                 </div>
             </div>
             <div className='dtls-wrap grid'>
@@ -56,7 +58,7 @@ const Home = () => {
                         <img width="100" height="100" src="https://img.icons8.com/clouds/100/cn-tower.png" alt="cn-tower" className='ct-img'/></p>
                         <p className='txt'>As fate would have it, their paths intertwined, and they found <span className='lrg-txt'>solace</span> in each other's company. Through the challenges of settling into a new country, they discovered a sanctuary within their relationship — a home that transcended geographical boundaries. <img width="25" height="25" src="https://img.icons8.com/bubbles/100/home.png" alt="home"/></p>
                         <p className='txt'>For <span className='lrg-txt'>five years</span>, they stood side by side, navigating the ebbs and flows of life as a united front. Together, they weathered the storms <img width="25" height="25" src="https://img.icons8.com/doodle/48/cloud-lighting.png" alt="cloud-lighting"/> that tested their commitment, persevering through the <span className='lrg-txt'>trials</span> that life threw their way. Through thick and thin, their love only grew stronger, <img width="25" height="25" src="https://img.icons8.com/emoji/48/face-holding-back-tears-emoji.png" alt="face-holding-back-tears-emoji"/> fortified by the shared experiences and unwavering support they offered one another.</p>
-                        <p className='txt supp'>And now...</p> 
+                        <p className='txt supp'> <span className='lrg-txt'>And now...</span></p> 
                         <p className='txt'>after what felt like an eternity, the moment had arrived—the crossroad where they stood, ready to embark on the <span className='lrg-txt'></span>next chapter of their lives together. The question hung in the air <img width="25" height="25" src="https://img.icons8.com/emoji/48/question-mark-emoji.png" alt="question-mark-emoji"/>, pulsating with anticipation: were they prepared to take the leap of faith and intertwine their destinies <span className='lrg-txt'>forever?</span> The resounding answer within their hearts was a resolute "yes." <img width="64" height="64" src="https://img.icons8.com/external-bearicons-gradient-bearicons/64/external-Yes-yes-or-no-bearicons-gradient-bearicons-2.png" alt="external-Yes-yes-or-no-bearicons-gradient-bearicons-2" className='ct-img'/></p>
                         <p className='txt'>With their hearts brimming with excitement and their souls aligned in harmony, they invite you to join in the joyous celebration of their future — a future they envision together, hand in hand. As they take their <span className='lrg-txt'>first steps</span> into this new chapter, they welcome friends and loved ones to witness and partake in the magical moments that lie ahead.</p>
                         <p className='txt'>In this tale of love, resilience, and unwavering devotion, <strong>Vishwas</strong> <img width="25" height="25" src="https://img.icons8.com/emoji/48/boy-medium-dark-skin-tone.png" alt="boy-medium-dark-skin-tone"/> and <strong>Bharati</strong> <img width="25" height="25" src="https://img.icons8.com/doodle/48/girl.png" alt="girl"/> invite you to be a part of their extraordinary journey — a journey that started in <span className='lrg-txt'>2017</span> and continues to unfold, painting a beautiful portrait of a love that knows no bounds. Together, they embark on a future filled with endless possibilities, forging ahead with hearts entwined, ready to create their own happily ever after.
@@ -134,10 +136,12 @@ const Home = () => {
                 </div>
             </div>
             <div className='sign-wrap'>
-                <h6 className='prop'>That's how the proposal went</h6>
-                <iframe width="600 " height="487" src="https://www.youtube.com/embed/uYi-AQCnfiY" title="BharatimadeaVish - Proposal Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                <h6>V & B</h6>
-                <p>9.24.2023</p>
+                <div className='grid'>
+                    <h6 className='prop'>That's how the proposal went</h6>
+                    <iframe width="600 " height="487" src="https://www.youtube.com/embed/uYi-AQCnfiY" title="BharatimadeaVish - Proposal Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                    <h6>V & B</h6>
+                    <p>9.24.2023</p>
+                </div>
             </div>
         </div>
     )
