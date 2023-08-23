@@ -51,10 +51,6 @@ header{
     left: 0;
     right: 0;
     background-color: rgba(255, 255, 255, 0.9);
-    background-image: url('../../public/backdrop.png');
-    background-size: contain;
-    background-position: 100% 0;
-    background-repeat: no-repeat;
     z-index: 1;
     .header-wrap{
         font-family: 'Sacramento', cursive;
@@ -616,7 +612,7 @@ header{
         padding-right: 30px;
         .upload{
             position: relative;
-            height: 50px;
+            height: 14px;
             .wrap{
                 position: fixed;
                 left: 50%;
@@ -636,11 +632,24 @@ header{
                 }
             }
         }
+        .search{
+            input{
+                border: 1px solid #0b0b0b;
+                border-radius: 9px;
+                outline: none;
+                padding: 15px 8px;
+                text-align: center;
+                width: 200px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
         .data{
-            padding: 50px 25px 25px;
+            padding: 25px;
             border: 1px solid #c4bcbc;
             margin-top: 20px;
             border-radius: 10px;
+            position: relative;
             &:first-of-type{
                 margin-top: 0;
             }
@@ -658,6 +667,20 @@ header{
                 span{
                     font-size: 14px;
                     padding-left: 10px;
+                }
+            }
+            .dlt-btn{
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                outline: none;
+                background: none;
+                border: none;
+                padding: 0;
+                transition: all 450ms;
+                cursor: pointer;
+                &:hover{
+                    transform: scale(1.1);
                 }
             }
         }

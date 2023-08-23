@@ -6,6 +6,8 @@ const Login = () => {
 
     const [key, setKey] = useState('');
     const [data, setData] = useState([]);
+    const [dataCopy, setDataCopy] = useState([]);
+    const [searchText, setSearchText] = useState('');
     const [uploadData, setUploadData] = useState([]);
     const [isFileUploaded, setIsFileUploaded] = useState(false);
     const passKey = 'ggwp@99';
@@ -14,6 +16,7 @@ const Login = () => {
         const data = await fetch('/api/collectlist');
         const json = await data.json();
         setData(json);
+        setDataCopy(json);
     };
 
     const tryLogin = code => {
@@ -85,9 +88,31 @@ const Login = () => {
         }
     };
 
+    const handleOnDeleteClick = async (inviteId) => {
+        const response = await fetch('/api/collectlist/' + inviteId, { method: 'DELETE' });
+        const { status } = response;
+        if(status === 204){
+            setData([]);
+            fetchData();
+        }
+    };
+
+    const filterSearch = () => {
+        const newData = dataCopy.filter(invite => {
+            if(invite.name.toLowerCase().includes(searchText.toLowerCase())){
+                return invite;
+            }
+        });
+        setData(newData);
+    }
+
     useEffect(() => {
         createInvite();
     }, [isFileUploaded]);
+
+    useEffect(() => {
+        filterSearch();
+    }, [searchText]);
 
     return (
         <div className='login-wrap'>
@@ -117,6 +142,9 @@ const Login = () => {
                                 />
                             </div>
                         </div>
+                        <div className='search'>
+                            <input type='text' value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder='Search'></input>
+                        </div>
                         {
                             data.map(invite => (
                                 <div key={invite._id} className='data'>
@@ -140,6 +168,7 @@ const Login = () => {
                                         <label>Email:</label>
                                         <span>{invite.email}</span>
                                     </div>
+                                    <button className='dlt-btn' onClick={() => handleOnDeleteClick(invite._id)}><img width="25" height="25" src="https://img.icons8.com/cute-clipart/64/filled-trash.png" alt="filled-trash"/></button>
                                 </div>
                             ))
                         }
