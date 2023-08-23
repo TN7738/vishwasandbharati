@@ -614,15 +614,51 @@ header{
     .data-wrap{
         overflow-y: auto;
         padding-right: 30px;
+        .upload{
+            position: relative;
+            height: 50px;
+            .wrap{
+                position: fixed;
+                left: 50%;
+                transform: translateX(-30%);
+                top: 85px;
+                z-index: 1;
+                .label{
+                    cursor: pointer;
+                }
+                input[type=file] {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
         .data{
-            padding: 20px;
-            border: solid 1px #090909;
+            padding: 50px 25px 25px;
+            border: 1px solid #c4bcbc;
             margin-top: 20px;
+            border-radius: 10px;
             &:first-of-type{
                 margin-top: 0;
             }
-            label{
-                padding-right: 7px;
+            div{
+                padding-top: 20px;
+                &:first-of-type{
+                    padding-top: 0;
+                }
+                label{
+                    padding: 3px 7px;
+                    font-size: 14px;
+                    border-radius: 5px;
+                    background: #ebe7e7;
+                }
+                span{
+                    font-size: 14px;
+                    padding-left: 10px;
+                }
             }
         }
     }

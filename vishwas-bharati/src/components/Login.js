@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
+import * as xlsx from 'xlsx';
 
 const Login = () => {
 
     const [key, setKey] = useState('');
     const [data, setData] = useState([]);
+    const [uploadData, setUploadData] = useState([]);
+    const [isFileUploaded, setIsFileUploaded] = useState(false);
     const passKey = 'ggwp@99';
 
     const fetchData = async () => {
@@ -20,6 +24,71 @@ const Login = () => {
         }
     };
 
+    const readUploadFile = (e) => {
+        e.preventDefault();
+        if (e.target.files) {
+            if(e.target.files[0].type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"){
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const data = e.target.result;
+                    const workbook = xlsx.read(data, { type: "array" });
+                    const sheetName = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[sheetName];
+                    const json = xlsx.utils.sheet_to_json(worksheet);
+                    json.forEach(data => {
+                        if(data.guests){
+                            if(data.guests.indexOf(',') !== -1){
+                                data.guests = data.guests.split(',');
+                            }
+                            else{
+                                data.guests = [data.guests];
+                            }
+                        }
+                    });
+                    setUploadData(json);
+                    if(json.length > 0){
+                        setIsFileUploaded(true);
+                    }
+                };
+                reader.readAsArrayBuffer(e.target.files[0]);
+            }
+        }
+    };
+    const createInvite = () => {
+        if(isFileUploaded){
+            let successArr = [];
+            uploadData.forEach(async(upload) => {
+                const reqData = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        name: upload.name,
+                        email: upload.email,
+                        restrictions: upload.restrictions,
+                        msg: upload.msg,
+                        guests: upload.guests
+                    })
+                };
+                const response = await fetch('/api/collectlist/', reqData);
+                const { status } = response;
+                if(status === 200){
+                    successArr.push(status);
+                }
+                else{
+                    successArr.push(400);
+                }
+            });
+            if(!successArr.includes(400)){
+                setData([]);
+                fetchData();
+            }
+        }
+    };
+
+    useEffect(() => {
+        createInvite();
+    }, [isFileUploaded]);
+
     return (
         <div className='login-wrap'>
             <div className='grid'>
@@ -29,7 +98,7 @@ const Login = () => {
                         <h3>Hi There!</h3>
                         <div className='dtls'>
                             <label>Please enter the passKey</label>
-                            <input type='text' value={key} onChange={(e) => setKey(e.target.value)} onKeyUp={(e) => tryLogin(e.keyCode)} />
+                            <input type='password' value={key} onChange={(e) => setKey(e.target.value)} onKeyUp={(e) => tryLogin(e.keyCode)} />
                             <button className='btn' onClick={() => tryLogin(987065)}>Login</button>
                         </div>
                     </>
@@ -37,6 +106,17 @@ const Login = () => {
                 {
                     data.length > 0 ?
                     <div className='data-wrap'>
+                        <div className='upload'>
+                            <div className='wrap'>
+                                <label htmlFor="upload"><img width="30" height="30" src="https://img.icons8.com/nolan/64/add.png" alt="add" /></label>
+                                <input
+                                    type="file"
+                                    name="upload"
+                                    id="upload"
+                                    onChange={readUploadFile}
+                                />
+                            </div>
+                        </div>
                         {
                             data.map(invite => (
                                 <div key={invite._id} className='data'>

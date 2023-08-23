@@ -121,7 +121,7 @@ const Rsvp = () => {
                 window.location.href ='/';
             }, 2500);
         }
-    }
+    };
 
     return (
         <div className='rsvp-wrap'>
