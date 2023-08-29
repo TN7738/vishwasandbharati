@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const collect = mongoose.model('Collect');
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
+var sesTransport = require('nodemailer-ses-transport');
 
 const CLIENT_ID = '808185717470-it8sg714erlji14ea6kejvb5v2ldfln7.apps.googleusercontent.com';
 const CLEINT_SECRET = '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';
@@ -25,8 +26,7 @@ async function sendMail() {
     try {
         const accessToken = await oAuth2Client.getAccessToken();
         
-        const transport = nodemailer.createTransport({
-            pool: true,
+        const transport = nodemailer.createTransport(sesTransport({
             host: "smtp.gmail.com",
             port: 465,
             secure: true,
@@ -38,7 +38,7 @@ async function sendMail() {
                 refreshToken: REFRESH_TOKEN,
                 accessToken: accessToken,
             },
-        });
+        }));
         
         const result = await transport.sendMail(mailOptions);
         return result;
