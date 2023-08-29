@@ -26,22 +26,28 @@ body{line-height: 1.4; font-family: 'Poppins', sans-serif;}
 }
 
 .btn{
-    background: rgb(53,104,254);
-    background: linear-gradient(90deg, rgba(53,104,254,1) 0%, rgba(192,41,255,1) 100%);
-    padding: 15px 30px;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, #3568fe, #c029ff 50%,transparent 0);
+    background-position: 0;
+    background-repeat: no-repeat;
+    border: 1px solid #c029ff;
+    background-size: 600px;
     border-radius: 10px;
     color: #fff;
-    text-align: center;
-    margin: 25px auto 0;
-    font-weight: 500;
-    font-size: 16px;
-    text-decoration: none;
-    display: block;
-    transition: all 150ms;
-    border: none;
     cursor: pointer;
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1;
+    margin: 25px auto 0;
+    padding: 15px 50px;
+    text-align: center;
+    text-decoration: none;
+    transition: background .3s ease-in-out;
     &:hover{
-        transform: scale(1.1);
+        background-position: 100%;
+        border: 1px solid #c029ff;
+        color: #000;
     }
 }
 
@@ -50,8 +56,9 @@ header{
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 1);
     z-index: 1;
+    box-shadow: rgba(28, 28, 28, 0.12) 0px 2px 2px;
     .header-wrap{
         font-family: 'Sacramento', cursive;
         width: 100%;
@@ -62,21 +69,25 @@ header{
         justify-content: space-between;
         align-items: center;
         a{
-            text-decoration: none;
             display: flex;
-            justify-content: center;
-            align-items: center;
             max-width: 300px;
             width: 100%;
+            text-decoration: none;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Dancing Script', cursive;
+            img{
+                margin-left: 4px;
+            }
             span{
                 font-size: 50px;
                 font-style: italic;
                 &.name1{
-                    color: #3568FE;
+                    color: #3568fe;
                     padding-left: 35px;
                 }
                 &.name2{
-                    color: #C029FF;
+                    color: #c029ff;
                 }
             }
             @media only screen and (max-width: 580px){
@@ -95,6 +106,8 @@ header{
         .cntdwn{
             padding-right: 35px;
             font-size: 21px;
+            color: #000000;
+            font-weight: 600;
             @media only screen and (max-width: 580px){
                 font-size: 15px;
                 padding: 5px;
@@ -152,7 +165,6 @@ header{
             padding: 0 15px;
             margin: 0 auto;
             h2{
-                font-family: 'Rubik', sans-serif;
                 color: #fff;
                 font-size: 29px;
                 text-align: center;
@@ -190,22 +202,23 @@ header{
                 }
             }
             .rsvp-lnk{
-                background: rgb(53,104,254);
-                background: linear-gradient(90deg, rgba(53,104,254,1) 0%, rgba(192,41,255,1) 100%);
+                background: rgb(83, 160, 216);
+                background: linear-gradient(90deg, rgb(83, 160, 216) 0%, rgb(192, 41, 255) 100%);
                 padding: 15px 30px;
                 border-radius: 10px;
                 color: #fff;
                 text-align: center;
                 margin: 25px auto 0;
                 font-weight: 500;
-                font-size: 16px;
+                font-size: 22px;
                 text-decoration: none;
                 display: block;
                 width: 100%;
-                max-width: 100px;
+                max-width: 160px;
                 transition: all 150ms;
                 &:hover{
                     transform: scale(1.1);
+                    transition: 0.3s all;
                 }
             }
         }
@@ -327,16 +340,18 @@ header{
                     margin-top: 0;
                 }
                 .txt{
-                    text-align: center;
                     width: 100%;
                     max-width: 357px;
+                    font-family: 'Poppins', sans-serif;
+                    @media only screen and (max-width: 580px){
+                        text-align: center;
+                    }
                    .dt{
-                        font-family: 'Rubik', sans-serif;
                         font-size: 16px;
-                        color: #627175;
+                        color: #000000;
+                        font-weight: 600;
                     } 
                     .occ{
-                        font-family: 'Open Sans', sans-serif;
                         font-size: 18px;
                         padding-top: 9px;
                         color: #3a3a3a;
@@ -345,10 +360,12 @@ header{
                     }
                 }
                 img{
+                    position: relative;
                     width: 300px;
                     height: 500px;
+                    border-radius: 8px;
+                    box-shadow: rgba(28, 28, 28, 0.12) 0px 6px 4px;
                     object-fit: cover;
-                    position: relative;
                 }
                 .prev-line, .aftr-line{
                     position: relative;
@@ -429,9 +446,7 @@ header{
         iframe{
             display: block;
             margin: 0 auto 70px;
-            @media only screen and (max-width: 660px){
-                width: 100%;
-            }
+            width: 100%;
         }
         p{
             font-family: 'Open Sans', sans-serif;
@@ -447,7 +462,6 @@ header{
 .rsvp-wrap{
     height: calc(100vh - 205px);
     margin-top: 115px;
-    font-family: 'Rubik', sans-serif;
     color: #303030;
     .grid{
         height: 100%;
@@ -465,7 +479,6 @@ header{
     }
     p{
         font-size: 14px;
-        text-align: center;
         padding: 20px 0;
         color: #787474;
     }
@@ -475,21 +488,20 @@ header{
         border: solid 1px #b3adad;
         border-radius: 7px;
         padding: 20px 18px;
-        text-align: center;
         font-size: 16px;
         outline: none;
     }
     textarea{
-        max-width: 200px;
         width: 100%;
-        border: solid 1px #b3adad;
-        border-radius: 7px;
-        padding: 10px 8px;
+        max-height: 70px;
+        max-width: 350px;
+        min-height: 70px;
+        padding: 10px 8px 40px;
         font-size: 14px;
         outline: none;
-        min-height: 70px;
-        max-height: 70px;
         overflow: auto;
+        border: 1px solid #b3adad;
+        border-radius: 7px;
     }
     .part2{
         padding-bottom: 50px;
@@ -497,37 +509,47 @@ header{
         display: flex;
         flex-flow: column;
         justify-content: center;
+        align-items: flex-start;
+        .edit-inv-wrap{
+            width: 100%;
+        }
+        .rsvp-form-wrapper{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media only screen and (max-width: 1060px){
+            .rsvp-bg{display: none;}
+        }
         h3{
             font-size: 23px;
             padding: 50px 0;
-            text-align: center;
         }
         .data-wrap{
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
+            flex-flow: column;
             label{
-                max-width: 124px;
-                width: 100%;
-                display: inline-block;
-                font-size: 14px;
-                color: #787474;
-                text-align: right;
-                padding-right: 12px;
+                color: #000;
+                font-size: 18px;
+                padding-bottom: 10px;
             }
             input{
-                max-width: 200px;
                 padding: 10px 8px;
                 font-size: 14px;
+                width: 100%;
+                max-width: 350px;
+            }
+            .guests-input{
+                width: 100%;
             }
             @media only screen and (max-width: 580px){
                 flex-flow: column;
-                align-items: center !important;
+                align-items: flex-start;
                 label{
                     padding-left: 0;
                     padding-right: 0;
-                    max-width: none;
-                    text-align: center;
                 }
             }
         }
@@ -549,7 +571,6 @@ header{
                     background: none;
                     cursor: pointer;
                 }
-
             }
             .add-btn{
                 border: none;

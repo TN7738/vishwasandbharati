@@ -17,6 +17,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            
             <div className='gtng-mrd'>
                 <div className='gtng-mrd-innerwrap'>
                     <h2>And we are getting married!</h2>
@@ -34,6 +35,7 @@ const Home = () => {
                     <Link to='/rsvp' reloadDocument className='rsvp-lnk'>RSVP</Link>
                 </div>
             </div>
+
             <div className='dtls-wrap grid'>
                 <div>
                     <h4>Wedding <img width="20" height="20" src="https://img.icons8.com/nolan/64/wedding-rings.png" alt="wedding-rings"/></h4>

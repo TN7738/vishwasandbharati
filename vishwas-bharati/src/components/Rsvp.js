@@ -147,35 +147,40 @@ const Rsvp = () => {
                     <div className='part2'>
                         {
                             selectedInvite._id !== undefined ?  (
-                                <div className='edit-inv-wrap'>
-                                    <h3>Here's your invite details</h3>
-                                    <p className='name data-wrap'>
-                                        <label htmlFor="name">Name:</label>
-                                        <input type='text' name='name' id='name' value={selectedInvite.name} onChange={(e) => setSelectedInvite(currInv => ({...currInv, name: e.target.value}))} />
-                                    </p>
-                                    <p className='restctn data-wrap'>
-                                        <label htmlFor="restrictions">Diet <br/> Restrictions:</label>
-                                        <textarea rows="3" cols="10" className='text-area' name="restrictions" id="restrictions" value={selectedInvite.restrictions} onChange={(e) => setSelectedInvite(currInv => ({...currInv, restrictions: e.target.value}))}></textarea>
-                                    </p>
-                                    <p className='msg data-wrap'>
-                                        <label htmlFor="msg">Note to <br/> the couple:</label>
-                                        <textarea rows="3" cols="10" className='text-area' name="msg" id="msg" value={selectedInvite.msg} onChange={(e) => setSelectedInvite(currInv => ({...currInv, msg: e.target.value}))}></textarea>
-                                    </p>
-                                    <p className='email data-wrap'>
-                                        <label htmlFor="email">Email:</label>
-                                        <input type='text' email='email' id='email' value={selectedInvite.email} onChange={(e) => setSelectedInvite(currInv => ({...currInv, email: e.target.value}))} />
-                                    </p>
-                                    <div className='guests data-wrap'>
-                                        <label htmlFor='guests'>Guests:</label>
-                                        <div>
-                                            {
-                                                inputFields.map((input, i) => <div key={i} className='guest-wrap'><input value={input} onChange={(e) => setDetails(i, e)} /> <button onClick={() => removeFields(i)}><img width="18" height="18" src="https://img.icons8.com/nolan/64/delete-sign.png" alt="delete-sign"/></button></div>)
-                                            }
-                                            <button onClick={() => addFields()} className='add-btn'><img width="30" height="30" src="https://img.icons8.com/nolan/64/add.png" alt="add"/></button>
+                                <div className='rsvp-form-wrapper'>
+                                    <div className='edit-inv-wrap'>
+                                        <h3>Here's your invite details</h3>
+                                        <p className='name data-wrap'>
+                                            <label htmlFor="name">Name:</label>
+                                            <input type='text' name='name' id='name' value={selectedInvite.name} onChange={(e) => setSelectedInvite(currInv => ({...currInv, name: e.target.value}))} />
+                                        </p>
+                                        <p className='restctn data-wrap'>
+                                            <label htmlFor="restrictions">Diet Restrictions:</label>
+                                            <textarea rows="3" cols="10" className='text-area' name="restrictions" id="restrictions" value={selectedInvite.restrictions} onChange={(e) => setSelectedInvite(currInv => ({...currInv, restrictions: e.target.value}))}></textarea>
+                                        </p>
+                                        <p className='msg data-wrap'>
+                                            <label htmlFor="msg">Note to the couple:</label>
+                                            <textarea rows="3" cols="10" className='text-area' name="msg" id="msg" value={selectedInvite.msg} onChange={(e) => setSelectedInvite(currInv => ({...currInv, msg: e.target.value}))}></textarea>
+                                        </p>
+                                        <p className='email data-wrap'>
+                                            <label htmlFor="email">Email:</label>
+                                            <input type='text' email='email' id='email' value={selectedInvite.email} onChange={(e) => setSelectedInvite(currInv => ({...currInv, email: e.target.value}))} />
+                                        </p>
+                                        <div className='guests data-wrap'>
+                                            <label htmlFor='guests'>Guests:</label>
+                                            <div className='guests-input'>
+                                                {
+                                                    inputFields.map((input, i) => <div key={i} className='guest-wrap'><input value={input} onChange={(e) => setDetails(i, e)} /> <button onClick={() => removeFields(i)}><img width="18" height="18" src="https://img.icons8.com/nolan/64/delete-sign.png" alt="delete-sign"/></button></div>)
+                                                }
+                                                <button onClick={() => addFields()} className='add-btn'><img width="30" height="30" src="https://img.icons8.com/nolan/64/add.png" alt="add"/></button>
+                                            </div>
                                         </div>
+                                        <button className='btn' onClick={() => editData()}>Submit</button>
                                     </div>
-                                    <button className='btn' onClick={() => editData()}>Submit</button>
-                                </div>
+                                    <div className='rsvp-bg'>
+                                        <img src='rsvp-bg.png' alt='flower' />
+                                    </div>            
+                                </div>    
                             ) : (
                                 <div className='new-inv-wrap'>
                                     {
@@ -200,7 +205,7 @@ const Rsvp = () => {
                                         <div className='step2'>
                                             <h3>Do you have any dietary restrictions?</h3>
                                             <div className='restr data-wrap'>
-                                                <label htmlFor="restrictions">Diet <br/> Restrictions:</label>
+                                                <label htmlFor="restrictions">Diet Restrictions:</label>
                                                 <textarea rows="3" cols="10" className='text-area' name="restrictions" id="restrictions" value={newInvite.restrictions} onChange={(e) => setNewInvite(currInv => ({...currInv, restrictions: e.target.value}))}></textarea>
                                             </div>
                                             <button className='btn' onClick={() => handleContinueFromSteps()}>Continue</button>
@@ -212,7 +217,7 @@ const Rsvp = () => {
                                         <div className='step3'>
                                             <h3>Send a note to the couple?</h3>
                                             <div className='msg data-wrap'>
-                                                <label htmlFor="msg">Note to <br/> the couple:</label>
+                                                <label htmlFor="msg">Note to the couple:</label>
                                                 <textarea rows="3" cols="10" className='text-area' name="msg" id="msg" value={newInvite.msg} onChange={(e) => setNewInvite(currInv => ({...currInv, msg: e.target.value}))}></textarea>
                                             </div>
                                             <button className='btn' onClick={() => handleContinueFromSteps()}>Continue</button>
