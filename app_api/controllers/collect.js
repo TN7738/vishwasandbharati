@@ -15,6 +15,8 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
+
+
 const mailOptions = {
     from: 'Vishwas\' Haldi & Sangeet <vishwaswedsbharati@gmail.com>',
     subject: 'Vishwas\' Haldi & Sangeet',
@@ -26,6 +28,14 @@ async function sendMail() {
         const accessToken = await oAuth2Client.getAccessToken();
         
         const transport = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            secure: false,
+            // secureConnection: false,
+            port: 587,
+            tls: {
+                ciphers: "SSLv3",
+                rejectUnauthorized: false
+            },
             service: 'gmail',
             auth: {
                 type: 'OAuth2',
@@ -84,7 +94,7 @@ async function sendMail() {
                 }
                 const fullName = arr.join(" ");
                 mailOptions.to = req.body.email;
-                mailOptions.html = '<h3>Hi ' + fullName +',</h3><img src="https://i.imgur.com/L66mn45.jpg" alt="Sangeet-Haldi-Invite" width="100%" height="100%" /><p><h3>Sangeet:</h3> <span>Fri, Sep 22</span><h4>Venue: <a href="https://goo.gl/maps/43Td6oAMKFzVBRJQA">Rangla Punjab, Manpada, Thane</a></h4><h4>Time: <span>6:00 PM onwards</span></h4></p><br/><p><h3>Haldi:</h3> <span>Fri, Sep 23</span><h4>Venue: <a href="https://goo.gl/maps/sN2rC7B9BAVo6dZN8">Blue Roof Club, Owale, Thane</a></h4><h4>Time: <span>7:00 PM onwards</span></h4></p>'
+                mailOptions.html = '<h3>Hi ' + fullName +',</h3><img src="https://i.imgur.com/L66mn45.jpg" alt="Sangeet-Haldi-Invite" width="100%" height="100%" /><p><h3>Sangeet:</h3> <span>Fri, Sep 22</span><h4>Venue: <a href="https://goo.gl/maps/43Td6oAMKFzVBRJQA">Rangla Punjab, Manpada, Thane</a></h4><h4>Time: <span>6:00 PM onwards</span></h4></p><br/><p><h3>Haldi:</h3> <span>Sat, Sep 23</span><h4>Venue: <a href="https://goo.gl/maps/sN2rC7B9BAVo6dZN8">Blue Roof Club, Owale, Thane</a></h4><h4>Time: <span>7:00 PM onwards</span></h4></p>'
                 sendMail()
                     .then((result) => {})
                     .catch((error) => console.log(error.message));
