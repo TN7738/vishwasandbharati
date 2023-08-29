@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 const collect = mongoose.model('Collect');
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
-const aws = require("@aws-sdk/client-ses");
-const { defaultProvider } = require("@aws-sdk/credential-provider-node");
 
 const CLIENT_ID = '808185717470-it8sg714erlji14ea6kejvb5v2ldfln7.apps.googleusercontent.com';
 const CLEINT_SECRET = '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';
@@ -17,12 +15,6 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
-const ses = new aws.SES({
-    apiVersion: "2010-12-01",
-    region: "us-east-1",
-    defaultProvider,
-});
-
 const mailOptions = {
     from: 'Vishwas\' Haldi & Sangeet <vishwaswedsbharati@gmail.com>',
     subject: 'Vishwas\' Haldi & Sangeet',
@@ -34,9 +26,10 @@ async function sendMail() {
         const accessToken = await oAuth2Client.getAccessToken();
         
         const transport = nodemailer.createTransport({
-            host: "smtpi.gmail.com",
-            SES: { ses, aws },
-            service: 'gmail',
+            pool: true,
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
             auth: {
                 type: 'OAuth2',
                 user: 'vishwaswedsbharati@gmail.com',
