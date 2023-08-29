@@ -31,20 +31,19 @@ const Home = () => {
                             <h3>Maharashtra</h3>
                         </div>
                     </div>
+                    <div className='dtls-wrap grid'>
+                        <div>
+                            <h4>Sangeet <img width="20" height="20" src="https://img.icons8.com/nolan/64/wedding-rings.png" alt="wedding-rings"/></h4>
+                            <p className='time'>6:00 PM onwards</p>
+                            <p className='attir'><span>Friday, Sep 22</span></p>
+                        </div>
+                        <div>
+                            <h4>Haldi <img width="20" height="20" src="https://img.icons8.com/nolan/64/wedding-photo.png" alt="wedding"/></h4>
+                            <p className='time'>7:00 PM onwards</p>
+                            <p className='attir'><span>Saturday, Sep 23</span></p>
+                        </div>
+                    </div>
                     <Link to='/rsvp' reloadDocument className='rsvp-lnk'>RSVP</Link>
-                </div>
-            </div>
-            <div className='dtls-wrap grid'>
-                <div>
-                    <h4>Wedding <img width="20" height="20" src="https://img.icons8.com/nolan/64/wedding-rings.png" alt="wedding-rings"/></h4>
-                    <p className='time'>5:00 PM - 7:00 PM</p>
-                    <p className='attir'><span>Attire:</span> Traditional</p>
-                </div>
-                <img className='arrow' width="50" height="50" src="https://img.icons8.com/nolan/64/long-arrow-down--v2.png" alt="long-arrow-down--v2"/>
-                <div>
-                    <h4>Reception <img width="20" height="20" src="https://img.icons8.com/nolan/64/wedding-photo.png" alt="wedding"/></h4>
-                    <p className='time'>7:30 PM - 11:00 PM</p>
-                    <p className='attir'><span>Attire:</span> Cocktail</p>
                 </div>
             </div>
             <div className='prtnr-wrap'>

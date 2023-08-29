@@ -99,27 +99,29 @@ const Rsvp = () => {
     };
 
     const createInvite = async () => {
-        const nonEmptyGuestList = inputFields.filter(str => str);
-        const reqData = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                name: fullName,
-                email: newInvite.email,
-                restrictions: newInvite.restrictions,
-                msg: newInvite.msg,
-                guests: nonEmptyGuestList
-            })
-        };
-        const response = await fetch('/api/collectlist/', reqData);
-        const { status } = response;
-        if(status === 200){
-            setProgress(100);
-            setNewInvite([]);
-            setShowFinalMsg(true);
-            setTimeout(() => {
-                window.location.href ='/';
-            }, 2500);
+        if(newInvite.email !== ''){
+            const nonEmptyGuestList = inputFields.filter(str => str);
+            const reqData = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    name: fullName,
+                    email: newInvite.email,
+                    restrictions: newInvite.restrictions,
+                    msg: newInvite.msg,
+                    guests: nonEmptyGuestList
+                })
+            };
+            const response = await fetch('/api/collectlist/', reqData);
+            const { status } = response;
+            if(status === 200){
+                setProgress(100);
+                setNewInvite([]);
+                setShowFinalMsg(true);
+                setTimeout(() => {
+                    window.location.href ='/';
+                }, 3500);
+            }
         }
     };
 
@@ -222,7 +224,7 @@ const Rsvp = () => {
                                     {
                                         inviteStep === 4 ?
                                         <div className='step4'>
-                                            <h3>Please tell us your email</h3>
+                                            <h3>Please tell us your email, so that we can send you an invite.</h3>
                                             <div className='email data-wrap'>
                                                 <label htmlFor="email">Email:</label>
                                                 <input type='text' email='email' id='email' value={newInvite.email} onChange={(e) => setNewInvite(currInv => ({...currInv, email: e.target.value}))} />
@@ -239,7 +241,7 @@ const Rsvp = () => {
                 {
                     showFinalMsg && 
                     <div className='part3'>
-                        <h4>Thank you, <span>{fullName}</span>. <br/> See you on September 24th &#129321;</h4>
+                        <h4>Thank you, <span>{fullName}</span>. <br/> Please check your email for details.</h4>
                     </div>
                 }
             </div>
