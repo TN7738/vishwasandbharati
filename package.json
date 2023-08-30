@@ -15,7 +15,6 @@
     "mongoose": "^6.2.1",
     "morgan": "~1.9.1",
     "nodemailer": "^6.9.4",
-    "nodemailer-ses-transport": "^1.5.1",
     "nodemon": "^3.0.1"
   }
 }
