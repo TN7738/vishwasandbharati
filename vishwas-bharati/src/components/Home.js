@@ -23,10 +23,7 @@ const Home = () => {
                     <Slider {...sliderSettings}>
                         <div><img src='banner.jpg' alt='couple' /></div>
                         <div><img src='banner2.jpg' alt='couple' /></div>
-                        <div><img src='banner3.jpg' alt='couple' className='banner3' /></div>
-                        <div><img src='banner4.jpg' alt='couple' className='banner4' /></div>
                         <div><img src='banner5.jpg' alt='couple' /></div>
-                        <div><img src='banner6.jpg' alt='couple' className='banner6' /></div>
                     </Slider>
                 </div>
                 <div className='support-txt'>
