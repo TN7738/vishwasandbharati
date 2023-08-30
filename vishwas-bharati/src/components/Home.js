@@ -2,13 +2,32 @@ import React from 'react';
 import '../styles/style.scss'
 import { Link } from 'react-router-dom';
 import TypeText from './TypeText';
+import Slider from "react-slick";
 
 const Home = () => {
+
+    const sliderSettings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000
+    };
+
     return (
         <div className='home-wrap'>
             <div className='home-innerwrap'>
                 <div className='hero-banner'>
-                    <img src='banner.jpg' alt='couple' />
+                    <Slider {...sliderSettings}>
+                        <div><img src='banner.jpg' alt='couple' /></div>
+                        <div><img src='banner2.jpg' alt='couple' /></div>
+                        <div><img src='banner3.jpg' alt='couple' className='banner3' /></div>
+                        <div><img src='banner4.jpg' alt='couple' className='banner4' /></div>
+                        <div><img src='banner5.jpg' alt='couple' /></div>
+                        <div><img src='banner6.jpg' alt='couple' className='banner6' /></div>
+                    </Slider>
                 </div>
                 <div className='support-txt'>
                     <div>
@@ -17,7 +36,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='gtng-mrd'>
+            <div className='gtng-mrd' id='invite-rsvp'>
                 <div className='gtng-mrd-innerwrap'>
                     <h2>And we are getting married!</h2>
                     <div className='dt-dtls'>
@@ -33,12 +52,12 @@ const Home = () => {
                     </div>
                     <div className='dtls-wrap grid'>
                         <div>
-                            <h4>Sangeet <img width="20" height="20" src="https://img.icons8.com/nolan/64/wedding-rings.png" alt="wedding-rings"/></h4>
+                            <h4>Sangeet</h4>
                             <p className='time'>6:00 PM onwards</p>
                             <p className='attir'><span>Friday, Sep 22</span></p>
                         </div>
                         <div>
-                            <h4>Haldi <img width="20" height="20" src="https://img.icons8.com/nolan/64/wedding-photo.png" alt="wedding"/></h4>
+                            <h4>Haldi</h4>
                             <p className='time'>7:00 PM onwards</p>
                             <p className='attir'><span>Saturday, Sep 23</span></p>
                         </div>
