@@ -213,7 +213,7 @@ header{
             }
         }
     }
-    .dtls-wrap{
+    .dtls-wrap, .dtls{
         text-align: center;
         font-size: 22px;
         padding-top: 70px;
@@ -238,10 +238,16 @@ header{
 
                 }
             }
+            a{
+                color: inherit;
+            }
         }
         .arrow{
             margin: 40px 0;
         }
+    }
+    .dtls{
+        display: block;
     }
     .prtnr-wrap{
         background-color: #A5C9FF;

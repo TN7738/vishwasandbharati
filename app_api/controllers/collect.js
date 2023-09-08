@@ -86,7 +86,7 @@ async function sendMail() {
                 }
                 const fullName = arr.join(" ");
                 mailOptions.to = req.body.email;
-                mailOptions.html = '<h3>Hi ' + fullName +',</h3><img src="https://i.imgur.com/L66mn45.jpg" alt="Sangeet-Haldi-Invite" width="100%" height="100%" /><p><h3>Sangeet:</h3> <span>Fri, Sep 22</span><h4>Venue: <a href="https://goo.gl/maps/43Td6oAMKFzVBRJQA">Rangla Punjab, Manpada, Thane</a></h4><h4>Time: <span>6:00 PM onwards</span></h4></p><br/><p><h3>Haldi:</h3> <span>Sat, Sep 23</span><h4>Venue: <a href="https://goo.gl/maps/sN2rC7B9BAVo6dZN8">Blue Roof Club, Owale, Thane</a></h4><h4>Time: <span>7:00 PM onwards</span></h4></p>'
+                mailOptions.html = '<h3>Hi ' + fullName +',</h3><img src="https://i.imgur.com/dJn4Vsr.jpg" alt="Sangeet-Haldi-Invite" width="100%" height="100%" /><p><h3>Sangeet:</h3> <span>Fri, Sep 22</span><h4>Venue: <a href="https://goo.gl/maps/43Td6oAMKFzVBRJQA">Rangla Punjab, Manpada, Thane</a></h4><h4>Time: <span>6:00 PM onwards</span></h4></p><br/><p><h3>Haldi:</h3> <span>Sat, Sep 23</span><h4>Venue: <a href="https://goo.gl/maps/sN2rC7B9BAVo6dZN8">Blue Roof Club, Owale, Thane</a></h4><h4>Time: <span>7:00 PM onwards</span></h4></p>'
                 sendMail()
                     .then((result) => {})
                     .catch((error) => console.log(error.message));

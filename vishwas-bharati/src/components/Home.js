@@ -50,16 +50,28 @@ const Home = () => {
                     <div className='dtls-wrap grid'>
                         <div>
                             <h4>Sangeet</h4>
+                            <p className='time'>Venue: <a href="https://goo.gl/maps/43Td6oAMKFzVBRJQA" target='_blank' rel="noreferrer">Rangla Punjab, Manpada, Thane</a></p>
                             <p className='time'>6:00 PM onwards</p>
                             <p className='attir'><span>Friday, Sep 22</span></p>
+                            <p className='attir'><span>Attire: Indo western</span></p>
                         </div>
                         <div>
                             <h4>Haldi</h4>
+                            <p className='time'>Venue: <a href="https://goo.gl/maps/sN2rC7B9BAVo6dZN8" target='_blank' rel="noreferrer">Blue Roof Club, Owale, Thane</a></p>
                             <p className='time'>7:00 PM onwards</p>
                             <p className='attir'><span>Saturday, Sep 23</span></p>
+                            <p className='attir'><span>Attire: Indian (Yellow)</span></p>
                         </div>
                     </div>
                     <Link to='/rsvp' reloadDocument className='rsvp-lnk'>RSVP</Link>
+                    <div className='dtls'>
+                        <h4>Wedding + Reception</h4>
+                        <p className='time'>Venue: <a href="https://goo.gl/maps/KQ9qCkNVkvvj4VKr7" target='_blank' rel='noreferrer'>Gloria Banquet Hall, Ovala Naka, Ghodbunder Rd, Thane</a></p>
+                        <p className='time'>Time: 4:00 PM (Baarat) | 5:00 PM (Shaadi) | 7:00 PM (Reception)</p>
+                        <p className='attir'>Sunday, Sep 24</p>
+                        <p className='attir'>Attire: Blazer / Dress / Indo-Western</p>
+                        <p className='attir'>Color Code (Not mandatory): Magenta, Jade, Ballet Slippers</p>
+                    </div>
                 </div>
             </div>
             <div className='prtnr-wrap'>
